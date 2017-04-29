@@ -17,6 +17,13 @@ body {
   border-bottom: 1px solid #eee;
 }
 
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
 
 /*
  * Main content
@@ -24,6 +31,7 @@ body {
 
 .main {
   padding: 20px;
+  padding-top: 50px;
 }
 @media (min-width: 768px) {
   .main {
@@ -32,7 +40,7 @@ body {
   }
 }
 .main .page-header {
-  margin-top: 50px;
+  margin-top: 0;
 }
 
 
