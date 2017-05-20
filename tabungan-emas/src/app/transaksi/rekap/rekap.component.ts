@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TransaksiService } from '../transaksi.service';
 
 @Component({
   selector: 'app-rekap',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RekapComponent implements OnInit {
 
-  constructor() { }
+  dataTransaksi = [];
 
-  ngOnInit() {
+  constructor(private transaksiService : TransaksiService){  }
+
+  ngOnInit(){
+    this.transaksiService.getDaftarTransaksi().then(hasil => this.dataTransaksi = hasil)
   }
 
 }

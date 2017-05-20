@@ -2,3 +2,24 @@
 
 <button class="btn btn-primary" routerLink="/transaksi/jual">Jual</button>
 <button class="btn btn-primary" routerLink="/transaksi/beli">Beli</button>
+
+<table class="table table-hover table-condensed table-striped">
+  <thead>
+    <tr>
+      <th>Tanggal</th>
+      <th>Keterangan</th>
+      <th>Beli</th>
+      <th>Jual</th>
+      <th>Saldo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let transaksi of dataTransaksi">
+      <th>{{transaksi.tanggal}}</th>
+      <th>{{transaksi.keterangan}}</th>
+      <th>{{transaksi.nilai}}</th>
+      <th>{{transaksi.nilai}}</th>
+      <th>{{transaksi.saldo}}</th>
+    </tr>
+  </tbody>
+</table>
