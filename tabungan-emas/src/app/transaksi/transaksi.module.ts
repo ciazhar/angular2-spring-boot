@@ -5,10 +5,11 @@ import { BeliComponent } from './beli/beli.component';
 import { RekapComponent } from './rekap/rekap.component';
 import { RouterModule, Routes } from '@angular/router';
 import { TransaksiService } from './transaksi.service';
+import { AuthGuard } from '../shared/authguard';
 
 const routingTransaksi : Routes = [
-  { path: "transaksi/beli", component: BeliComponent },
-  { path: "transaksi/jual", component: JualComponent },
+  { path: "transaksi/beli", component: BeliComponent, canActivate : [AuthGuard] },
+  { path: "transaksi/jual", component: JualComponent, canActivate : [AuthGuard] },
   { path: "transaksi/rekap", component: RekapComponent }
 ]
 
@@ -20,7 +21,7 @@ const routingTransaksi : Routes = [
   ],
   declarations: [JualComponent, BeliComponent, RekapComponent],
   providers :[
-    TransaksiService
+    TransaksiService, AuthGuard
   ]
 
 })

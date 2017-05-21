@@ -3,8 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-
 import { TransaksiModule } from './transaksi/transaksi.module';
+
+import { AuthService } from './shared/auth.service';
+import { AuthGuard } from './shared/authguard';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -13,8 +15,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { AboutComponent } from './about/about.component';
 
 const routingAplikasi: Routes = [
-  { path: "about", component: AboutComponent },
-  { path: "transaksi", redirectTo: "/transaksi", pathMatch: "full"},
+  { path: "about", component: AboutComponent, canActivate : [AuthGuard] },
+  { path: "transaksi", redirectTo: "/transaksi", pathMatch: "full", canActivateChild : [AuthGuard]},
   { path: "**", component: WelcomeComponent }
 ]
 
@@ -34,7 +36,9 @@ const routingAplikasi: Routes = [
     TransaksiModule,
     RouterModule.forRoot(routingAplikasi)
   ],
-  providers: [],
+  providers: [
+    AuthGuard, AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
