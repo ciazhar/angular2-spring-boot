@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared/auth.service'
+import { AuthService } from '../shared/auth.service';
+import { Router }   from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +9,14 @@ import { AuthService } from '../shared/auth.service'
 })
 export class NavbarComponent implements OnInit {
   title = 'Aplikasi Tabungan Emas';
-  constructor(private authService : AuthService) { }
+  constructor(private authService : AuthService, private router : Router) { }
 
   ngOnInit() {
+  }
+
+  logout(){
+    this.authService.logout();
+    this.router.navigate(['login']);
   }
 
 }

@@ -13,8 +13,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './shared/login/login.component';
 
 const routingAplikasi: Routes = [
+  { path: "login", component: LoginComponent},
   { path: "about", component: AboutComponent, canActivate : [AuthGuard] },
   { path: "transaksi", redirectTo: "/transaksi", pathMatch: "full", canActivateChild : [AuthGuard]},
   { path: "**", component: WelcomeComponent }
@@ -27,7 +29,8 @@ const routingAplikasi: Routes = [
     NavbarComponent,
     SidebarComponent,
     WelcomeComponent,
-    AboutComponent
+    AboutComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from './shared/auth.service';
 
 @Component({
   selector: 'tabungan-emas',
@@ -9,6 +8,4 @@ import { AuthService } from './shared/auth.service';
 export class AppComponent {
   title = 'Aplikasi Tabungan Emas';
 
-  constructor(private authService : AuthService) { }
-  
 }
